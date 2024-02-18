@@ -3,6 +3,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Option(models.Model):
+    """Options"""
     title = models.TextField(verbose_name="Title")
     image = models.ImageField(upload_to='./options/', blank=True, null=True)
 
@@ -11,6 +12,7 @@ class Option(models.Model):
 
 
 class Question(models.Model):
+    """Questions"""
     title = models.TextField(verbose_name="Title")
     image = models.ImageField(upload_to='./questions/', blank=True, null=True)
     description = RichTextUploadingField(verbose_name='Description', blank=True, null=True)
@@ -23,6 +25,7 @@ class Question(models.Model):
 
 
 class Credit(models.Model):
+    """Credit"""
     title = models.TextField(verbose_name='Title')
     slug = models.CharField(max_length=20, verbose_name='Slug')
     description = RichTextUploadingField(verbose_name='Description', blank=True, null=True)
