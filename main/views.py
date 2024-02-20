@@ -1,3 +1,5 @@
+import random
+
 from django.shortcuts import render
 from .models import Credit, Question, Option
 
@@ -16,8 +18,11 @@ def credit_view(request):
         credit = Credit.objects.get(slug=slug)
         content = {
             'credits': credit,
+            'questions': random.choices(Question.objects.all(), k=5)
         }
-        return render(request, 'main/welcome.html', content)
-
-    return render(request, 'main/welcome.html')
+        return render(request, 'main/credit.html', content)
+    content = {
+        'questions': random.choices(Question.objects.all(), k=5)
+    }
+    return render(request, 'main/credit.html', content)
 

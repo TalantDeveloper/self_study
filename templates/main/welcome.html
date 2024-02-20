@@ -8,20 +8,20 @@
     <title>Self Study</title>
 </head>
 <body>
-    <h1>Assalomu alaykum.</h1>
-    <hr>
-    {% for credit in credits %}
-        {{ credit.slug }} - {{ credit.title }}
-        <br>
-        {% for question in credit.questions.all %}
-            <i>{{ question.title }}</i>
-                {% for option in question.options.all %}
-                    <br>
-                    <b>{{ option.title }}</b>
-                {% endfor %}
-
-            {% endfor %}
+<h1>Assalomu alaykum.</h1>
+<hr>
+{% for credit in credits %}
+    {{ credit.slug }} - {{ credit.title }}
+    <br>
+    {% for question in credit.questions.all %}
+        <i>{{ question.title }}</i>
+        {% for option in question.options.all %}
+            <br>
+            <b>{{ option.title }}</b>
+        {% endfor %}
+        <hr>
     {% endfor %}
-    
+{% endfor %}
+
 </body>
 </html>
