@@ -8,9 +8,10 @@
     <title>Test</title>
 </head>
 <body>
+    {{ questions }}
     {% for question in questions %}
         <i>{{ question.title }}</i>
-        {% for option in question.options.all %}
+        {% for option in question.options %}
             <br>
             <b>{{ option.title }}</b>
         {% endfor %}

@@ -13,16 +13,32 @@ def welcome(request):
 
 
 def credit_view(request):
-    if request.method == 'POST':
-        slug = request.POST.get('slug')
-        credit = Credit.objects.get(slug=slug)
-        content = {
-            'credits': credit,
-            'questions': random.choices(Question.objects.all(), k=5)
-        }
-        return render(request, 'main/credit.html', content)
+    questions = Question.objects.all()
+    aasal = []
+    for question in questions:
+        title = question.title
+        image = ''
+        if question.image:
+            image = question.image.url
+        options = []
+        for option in question.options.all():
+            op_title = option.title
+            op_image = ''
+            if option.image:
+                op_image = option.image.url
+            options.append(op_title)
+        aasal.append({'title': title, 'image': image, 'options': random.choices(options, k=4)})
+
+    # if request.method == 'POST':
+    #     slug = request.POST.get('slug')
+    #     credit = Credit.objects.get(slug=slug)
+    #     content = {
+    #         'credits': credit,
+    #         'questions': random.shuffle(aasal),
+    #     }
+    #     return render(request, 'main/credit.html', content)
     content = {
-        'questions': random.choices(Question.objects.all(), k=5)
+        'questions': aasal,
     }
     return render(request, 'main/credit.html', content)
 

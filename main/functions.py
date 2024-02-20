@@ -16,3 +16,92 @@ def questions_create(science: Credit, type):
     }
 
 
+assas = [
+    {
+        'title': 'Bilmaddimmi bilmadim?',
+        'image': '',
+        'options': [
+            {
+                'title': 'Bildim',
+                'image': '',
+            },
+            {
+                'title': 'bilmadim',
+                'image': '',
+            },
+            {
+                'title': 'sasa',
+                'image': '',
+            },
+            {
+                'title': 'ssaasasdaa',
+                'image': '',
+            }
+        ]
+    },
+    {
+        'title': 'Bilmaddimmi bilmadim?',
+        'image': '',
+        'options': [
+            {
+                'title': 'Bildim',
+                'image': '',
+            },
+            {
+                'title': 'bilmadim',
+                'image': '',
+            },
+            {
+                'title': 'sasa',
+                'image': '',
+            },
+            {
+                'title': 'ssaasasdaa',
+                'image': '',
+            }
+        ]
+    }, {
+        'title': 'Bilmaddimmi bilmadim?',
+        'image': '',
+        'options': [
+            {
+                'title': 'Bildim',
+                'image': '',
+            },
+            {
+                'title': 'bilmadim',
+                'image': '',
+            },
+            {
+                'title': 'sasa',
+                'image': '',
+            },
+            {
+                'title': 'ssaasasdaa',
+                'image': '',
+            }
+        ]
+    },
+    {
+        'title': 'Bilmaddimmi bilmadim?',
+        'image': '',
+        'options': [
+            {
+                'title': 'Bildim',
+                'image': '',
+            },
+            {
+                'title': 'bilmadim',
+                'image': '',
+            },
+            {
+                'title': 'sasa',
+                'image': '',
+            },
+            {
+                'title': 'ssaasasdaa',
+                'iamge': '',
+            }
+        ]
+    }
+]
