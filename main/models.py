@@ -10,6 +10,10 @@ class Option(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def count_options(self):
+        return Option.objects.count()
+
 
 class Question(models.Model):
     """Questions"""
@@ -23,6 +27,20 @@ class Question(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def count_questions(self):
+        return Question.objects.count()
+
+    @property
+    def get_options(self):
+        ops = [option.title for option in self.options.all()]
+        return {'count': self.options.all().count(), 'options': ops}
+
+    @property
+    def get_corrects(self):
+        cors = [correct.title for correct in self.corrects.all()]
+        return {'count': self.corrects.all().count(), 'corrects': cors}
+
 
 class Credit(models.Model):
     """Credit"""
@@ -33,3 +51,13 @@ class Credit(models.Model):
 
     def __str__(self):
         return f"{self.slug} - {self.title}"
+
+    @property
+    def count_credits(self):
+        return Credit.objects.count()
+
+    @property
+    def get_questions(self):
+        quess = [question.title for question in self.questions.all()]
+        return {'count': self.questions.all().count(), 'questions': quess}
+

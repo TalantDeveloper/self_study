@@ -27,8 +27,11 @@ def credit_view(request):
             if option.image:
                 op_image = option.image.url
             options.append(op_title)
-        aasal.append({'title': title, 'image': image, 'options': random.choices(options, k=4)})
-
+        print(f"{title} - {options}")
+        aasal.append({'title': title, 'image': image, 'options': options})
+    for asal in aasal:
+        print(asal)
+    
     # if request.method == 'POST':
     #     slug = request.POST.get('slug')
     #     credit = Credit.objects.get(slug=slug)
