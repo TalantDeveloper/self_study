@@ -2,10 +2,16 @@ import random
 
 from django.shortcuts import render
 from .models import Credit, Question, Option
+from .functions import credit_versions, credit_questions
 
 
 def welcome(request):
-    credits = Credit.objects.all()
+    if request.method == 'POST':
+        title = request.POST['title']
+        credits = Credit.objects.filter(title=title)
+        return render(request, 'main/welcome.html', {'credits': credits})
+    else:
+        credits = Credit.objects.all()
     content = {
         'credits': credits
     }
@@ -44,4 +50,16 @@ def credit_view(request):
         'questions': aasal,
     }
     return render(request, 'main/credit.html', content)
+
+
+def credit_edit(request, id):
+    credit = Credit.objects.get(id=id)
+    content = {
+            'credit': credit,
+            'versions': credit_versions(credit_questions(id)),
+    }
+    return render(request, 'main/credit_edit.html', content)
+
+
+
 

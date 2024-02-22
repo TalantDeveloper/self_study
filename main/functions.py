@@ -105,3 +105,26 @@ assas = [
         ]
     }
 ]
+
+
+def credit_questions(credit_id, num=20):
+    questions = Credit.objects.get(id=credit_id).questions.all()
+    titles = [question.title for question in questions]
+    print(f"dastlab: {titles}")
+    random.shuffle(titles)
+    print(f"o'zgargani: {titles}")
+    return titles
+
+
+def credit_versions(titles):
+    versions = []
+    for title in titles:
+        vers = {}
+        question = Question.objects.get(title=title)
+        vers['question'] = question
+        options = [option.title for option in question.options.all()]
+        random.shuffle(options)
+        vers['options'] = options
+        versions.append(vers)
+    return versions
+
