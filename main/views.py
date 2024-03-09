@@ -6,6 +6,9 @@ from .functions import credit_versions, credit_questions
 
 
 def welcome(request):
+    print(f"{Question.objects.get(id=1).description}")
+    description = Question.objects.get(id=1).description
+
     if request.method == 'POST':
         title = request.POST['title']
         credits = Credit.objects.filter(title=title)
