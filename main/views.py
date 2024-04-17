@@ -55,11 +55,11 @@ def credit_view(request):
     return render(request, 'main/credit.html', content)
 
 
-def credit_edit(request, id):
-    credit = Credit.objects.get(id=id)
+def credit_edit(request, credit_id):
+    credit = Credit.objects.get(id=credit_id)
     content = {
             'credit': credit,
-            'versions': credit_versions(credit_questions(id)),
+            'versions': credit_versions(credit_questions(credit_id)),
     }
     return render(request, 'main/credit_edit.html', content)
 

@@ -6,5 +6,5 @@ app_name = 'main'
 urlpatterns = [
     path('', welcome, name='welcome'),
     path('credit', credit_view, name='credit_view'),
-    path('credit/<int:id>', credit_edit, name='credit')
+    path('credit/<int:credit_id>', credit_edit, name='credit')
 ]
