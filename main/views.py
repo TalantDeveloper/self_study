@@ -6,6 +6,8 @@ from .functions import credit_versions, credit_questions
 
 
 def welcome(request):
+    print(request.META.get('REMOVE_ADDR'))
+    print("Salom:  ", request.client_ip)
     print(f"{Question.objects.get(id=1).description}")
     description = Question.objects.get(id=1).description
 
